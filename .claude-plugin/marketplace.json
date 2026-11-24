@@ -1,0 +1,16 @@
+{
+  "name": "why-skills",
+  "owner": {
+    "name": "COSWINNER"
+  },
+  "metadata": {
+    "description": "面向 Codex 和 Claude Code 的技能市场。"
+  },
+  "plugins": [
+    {
+      "name": "image-generator",
+      "description": "使用 Gemini、OpenAI GPT Image 或通义千问生成、编辑和合成图片。",
+      "source": "./plugins/image-generator"
+    }
+  ]
+}

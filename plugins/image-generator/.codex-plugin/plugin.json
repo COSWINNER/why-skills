@@ -1,0 +1,8 @@
+{
+  "name": "image-generator",
+  "version": "0.1.0",
+  "description": "使用 Gemini、OpenAI GPT Image 或通义千问生成、编辑和合成图片。",
+  "author": {
+    "name": "COSWINNER"
+  }
+}
