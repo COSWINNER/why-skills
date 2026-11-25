@@ -2,6 +2,7 @@
 .env.*
 !.env.example
 generation-image/
+generation-audio/
 __pycache__/
 *.py[cod]
 .venv/

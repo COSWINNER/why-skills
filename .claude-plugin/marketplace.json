@@ -11,6 +11,11 @@
       "name": "image-generator",
       "description": "使用 Gemini、OpenAI GPT Image 或通义千问生成、编辑和合成图片。",
       "source": "./plugins/image-generator"
+    },
+    {
+      "name": "mimo-tts",
+      "description": "使用小米 MiMo 生成语音，支持预置音色、音色设计、音色复刻和风格控制。",
+      "source": "./plugins/mimo-tts"
     }
   ]
 }

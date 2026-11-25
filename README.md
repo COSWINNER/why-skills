@@ -5,6 +5,7 @@
 | 插件 | 版本 | 用途 |
 | --- | --- | --- |
 | `image-generator` | `0.1.0` | 使用 Gemini、OpenAI GPT Image 或通义千问生成、编辑和合成图片。 |
+| `mimo-tts` | `0.1.0` | 使用小米 MiMo 生成语音，支持预置音色、音色设计、音色复刻和风格控制。 |
 
 ## 在 Codex 安装
 
@@ -62,6 +63,19 @@ claude plugin marketplace remove why-skills
 
 配置后在 Codex 中选择 `image-generator`，或在 Claude Code 中调用 `/image-generator:image-generator` 并提供提示词。需要编辑或合成时，可同时提供参考图片。
 
+## 安装并配置 MiMo TTS
+
+添加市场后，根据所用客户端执行对应的安装命令。
+
+```bash
+codex plugin add mimo-tts@why-skills
+claude plugin install mimo-tts@why-skills --scope user
+```
+
+使用 Python 3.11 或更新版本，运行 `python -m pip install python-dotenv`。在已安装技能目录中，将 [`.env.example`](plugins/mimo-tts/skills/mimo-tts/.env.example) 复制为 `.env`，填写 `MIMO_API_KEY`。通过 `MIMO_BASE_URL` 配置 API 基础地址，默认 `https://api.xiaomimimo.com/v1`。三个模式分别使用 `MIMO_PRESET_MODEL`、`MIMO_DESIGN_MODEL` 和 `MIMO_CLONE_MODEL`，可独立替换模型。
+
+在 Codex 中选择 `mimo-tts:mimo-tts`，或在 Claude Code 调用 `/mimo-tts:mimo-tts`。提供要读的正文，并按需说明预置音色、设计要求或本地复刻样本。默认返回 WAV，也支持 MP3。参数和示例见[技能说明](plugins/mimo-tts/skills/mimo-tts/SKILL.md)与[风格控制指南](plugins/mimo-tts/skills/mimo-tts/references/style-control.md)。
+
 ## 维护市场
 
 1. 把技能放在 `plugins/<名称>/skills/<名称>/`，在 `SKILL.md` 的 YAML 中填写 `name` 和 `description`，将依赖的脚本及资源放在同一技能目录内。
@@ -73,7 +87,11 @@ claude plugin marketplace remove why-skills
 python3 scripts/validate.py
 claude plugin validate --strict .
 claude plugin validate --strict plugins/image-generator
+claude plugin validate --strict plugins/mimo-tts
 
 # 安装三个服务商 SDK 后运行。测试使用本地模拟接口。
 python3 -m unittest discover -s plugins/image-generator/skills/image-generator/tests -v
+
+# 安装 python-dotenv 后运行。MiMo 测试使用本地模拟接口。
+python3 -m unittest discover -s plugins/mimo-tts/skills/mimo-tts/tests -v
 ```

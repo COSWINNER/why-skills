@@ -1,0 +1,8 @@
+{
+  "name": "mimo-tts",
+  "version": "0.1.0",
+  "description": "使用小米 MiMo 生成语音，支持预置音色、音色设计、音色复刻和风格控制。",
+  "author": {
+    "name": "COSWINNER"
+  }
+}
